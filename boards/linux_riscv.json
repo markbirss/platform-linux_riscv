@@ -1,0 +1,11 @@
+{
+  "name": "Linux RISC-V",
+  "url": " ",
+  "vendor": " ",
+  "upload": {
+    "maximum_size": "1073741824",
+    "maximum_ram_size": "1073741824"
+  },
+  "frameworks": [ 
+  ]
+}

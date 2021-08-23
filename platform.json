@@ -1,0 +1,25 @@
+{
+  "name": "linux_riscv",
+  "title": "Linux RISC-V",
+  "description": "Toolchain for cross-development for Linux RISC-V systems",
+  "homepage": " ",
+  "license": "Apache-2.0",
+  "keywords": [
+    "dev-platform",
+    "Linux",
+    "RISC-V"
+  ],
+  "engines": {
+    "platformio": "^5"
+  },
+  "version": "1.0.0",
+  "frameworks": {
+  },
+  "packages": {
+    "toolchain-riscv": {
+      "type": "toolchain",
+      "owner": "platformio",
+      "version": "~1.80300.0"
+    }
+  }
+}
