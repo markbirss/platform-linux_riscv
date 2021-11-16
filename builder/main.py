@@ -17,14 +17,17 @@ from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
 env = DefaultEnvironment()
 
 env.Replace(
-    AR="riscv64-unknown-elf-gcc-ar",
-    AS="riscv64-unknown-elf-as",
-    CC="riscv64-unknown-elf-gcc",
+    _BINPREFIX="",
+    AR="${_BINPREFIX}ar",
+    AS="${_BINPREFIX}as",
+    CC="${_BINPREFIX}gcc",
     GDB="gdb-multiarch",
-    CXX="riscv64-unknown-elf-g++",
-    OBJCOPY="riscv64-unknown-elf-objcopy",
-    RANLIB="riscv64-unknown-elf-gcc-ranlib",
-    SIZETOOL="riscv64-unknown-elf-size",
+    CXX="${_BINPREFIX}g++",
+    OBJCOPY="${_BINPREFIX}objcopy",
+    RANLIB="${_BINPREFIX}ranlib",
+    SIZETOOL="${_BINPREFIX}size",
+    OBJDUMP="${_BINPREFIX}objdump",
+
 
     ARFLAGS=["rc"],
 
@@ -33,6 +36,12 @@ env.Replace(
     PROGSUFFIX=".elf",
     PROGNAME="firmware"
 )
+
+pioframework = env.get("PIOFRAMEWORK", [])
+if "glibc" in pioframework:
+    env.Replace(_BINPREFIX="riscv64-linux-gnu-")
+else: 
+    env.Replace(_BINPREFIX="riscv64-unknown-elf-")
 
 #
 # Target: Build elf only
@@ -50,4 +59,5 @@ AlwaysBuild(target_size)
 #
 # Setup default targets
 #
-Default([target_elf, target_size])
+
+Default([target_elf, target_size])

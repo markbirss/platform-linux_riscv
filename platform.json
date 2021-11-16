@@ -13,7 +13,10 @@
     "platformio": "^5"
   },
   "version": "1.0.0",
-  "frameworks": {
+  "frameworks": { 
+    "glibc": {
+      "script": "builder/glibc.py"
+    }
   },
   "packages": {
     "toolchain-riscv": {

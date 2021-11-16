@@ -1,11 +1,11 @@
 {
-  "name": "Linux RISC-V",
+  "name": "Linux RISC-V GNU",
   "url": " ",
   "vendor": " ",
   "upload": {
     "maximum_size": "1073741824",
     "maximum_ram_size": "1073741824"
   },
-  "frameworks": [ "glibc"
+  "frameworks": [ 
   ]
 }
